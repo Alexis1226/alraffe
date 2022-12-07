@@ -16,6 +16,16 @@ const style = css`
   h1 {
     font-size: 55px;
     font-weight: 400;
+
+    @media (min-width: 840px) {
+      font-size: 85px;
+    }
+    @media (min-width: 1140px) {
+      font-size: 125px;
+    }
+    @media (min-width: 1600px) {
+      font-size: 165px;
+    }
   }
 
   h2 {
@@ -26,6 +36,18 @@ const style = css`
   h3 {
     font-size: 23px;
     font-weight: 500;
+  }
+
+  h4 {
+    font-size: 20px;
+    font-weight: 500;
+
+    @media (min-width: 1140px) {
+      font-size: 22px;
+    }
+    @media (min-width: 1600px) {
+      font-size: 24px;
+    }
   }
 
   h5 {
@@ -39,6 +61,16 @@ const style = css`
   textarea {
     border: 0;
     outline: 0 !important;
+  }
+
+  /* icon mouse and color hover effect */
+  .iconHoverEffect {
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+
+    &:hover {
+      color: white;
+    }
   }
 `;
 
