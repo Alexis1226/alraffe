@@ -1,5 +1,12 @@
 import { Global, css } from "@emotion/react";
 
+export const screenSize = {
+  primary: "1600px",
+  small: "1140px",
+  tablet: "840px",
+  mobile: "540px",
+  mini: "320px",
+};
 const style = css`
   @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
   @import url("https://fonts.googleapis.com/css2?family=Lato&display=swap");
@@ -17,13 +24,13 @@ const style = css`
     font-size: 55px;
     font-weight: 400;
 
-    @media (min-width: 840px) {
+    @media (min-width: ${screenSize.tablet}) {
       font-size: 85px;
     }
-    @media (min-width: 1140px) {
+    @media (min-width: ${screenSize.small}) {
       font-size: 125px;
     }
-    @media (min-width: 1600px) {
+    @media (min-width: ${screenSize.primary}) {
       font-size: 165px;
     }
   }
@@ -42,10 +49,10 @@ const style = css`
     font-size: 20px;
     font-weight: 500;
 
-    @media (min-width: 1140px) {
+    @media (min-width: ${screenSize.small}) {
       font-size: 22px;
     }
-    @media (min-width: 1600px) {
+    @media (min-width: ${screenSize.primary}) {
       font-size: 24px;
     }
   }
