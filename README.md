@@ -1,8 +1,10 @@
+![logo Image](/public/faviconio-logo/logo.png "Optional title")
+
 # Alraffe
 
 # Description
 
-This is my Portfolio Project.
+This is a Portfolio Project.
 
 - Design - [reference](https://dribbble.com/shots/17715862-Architect-Interior-design-Website-Video-08)
 
