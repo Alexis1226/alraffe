@@ -7,6 +7,7 @@ export const screenSize = {
   mobile: "540px",
   mini: "320px",
 };
+
 const style = css`
   @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
   @import url("https://fonts.googleapis.com/css2?family=Lato&display=swap");
@@ -68,6 +69,11 @@ const style = css`
   textarea {
     border: 0;
     outline: 0 !important;
+  }
+
+  button {
+    cursor: pointer;
+    transition: 0.3s cubic-bezier(0.4, 0.4, 0, 1);
   }
 
   /* icon mouse and color hover effect */
