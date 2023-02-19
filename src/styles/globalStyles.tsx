@@ -8,6 +8,11 @@ export const screenSize = {
   mini: "320px",
 };
 
+export const mainColor = {
+  orange: "#D04019",
+  beige: "#D9D5CD",
+};
+
 const style = css`
   @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
   @import url("https://fonts.googleapis.com/css2?family=Lato&display=swap");
@@ -63,6 +68,12 @@ const style = css`
     font-weight: 700;
   }
 
+  section,
+  div,
+  button {
+    box-sizing: border-box;
+  }
+
   select,
   input,
   button,
@@ -72,6 +83,7 @@ const style = css`
   }
 
   button {
+    background: none;
     cursor: pointer;
     transition: 0.3s cubic-bezier(0.4, 0.4, 0, 1);
   }

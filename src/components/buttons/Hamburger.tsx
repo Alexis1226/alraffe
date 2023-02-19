@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import { mainColor } from "@styles/globalStyles";
 
 function Hamburger() {
   return (
@@ -20,7 +21,7 @@ const Button = styled.button`
 
   &:hover {
     & > div {
-      background: #d04019;
+      background: ${mainColor.orange};
       transition: all 0.6s cubic-bezier(0.4, 0.4, 0, 1);
 
       &.shorten {

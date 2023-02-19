@@ -20,3 +20,7 @@ This is a Portfolio Project.
 - React
 - Emotion
 - craco
+
+# Features
+
+- Random quotes by using [API](https://favqs.com/api)
