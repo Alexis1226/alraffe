@@ -91,14 +91,14 @@ function Footer() {
         <BottomSide className="linkArea">
           <div>{data?.content}</div>
           <IconBox>
-            <Link
-              to="twitter.com/alraffe"
-              style={{
-                textDecoration: "none",
-              }}
-            >
-              <FaTwitter />
-            </Link>
+            <FaTwitter
+              onClick={() =>
+                window.open(
+                  "https://twitter.com/alraffe",
+                  "_blank"
+                )
+              }
+            />
           </IconBox>
         </BottomSide>
       </InnerBox>
