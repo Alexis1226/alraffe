@@ -1,9 +1,14 @@
 import styled from "@emotion/styled";
 import { mainColor } from "@styles/globalStyles";
+import { Dispatch, SetStateAction } from "react";
 
-function Hamburger() {
+interface componentProps {
+  setMenuOpen: Dispatch<SetStateAction<boolean>>;
+}
+
+function Hamburger(props: componentProps) {
   return (
-    <Button>
+    <Button onClick={() => props.setMenuOpen(true)}>
       <Bar />
       <Bar className="shorten" />
     </Button>
@@ -17,16 +22,16 @@ const Button = styled.button`
   justify-content: center;
   padding: 0;
   width: 50px;
-  /* transition-duration: 600ms; */
+  transition-duration: 600ms;
 
   &:hover {
     & > div {
       background: ${mainColor.orange};
-      transition: all 0.6s cubic-bezier(0.4, 0.4, 0, 1);
+      transition: all 0.3s ease-in-out;
 
       &.shorten {
         transform: scale(0.6, 1);
-        transform-origin: right;
+        /* transform-origin: right; */
       }
     }
   }
@@ -36,8 +41,10 @@ const Bar = styled.div`
   width: 50px;
   max-width: 100%;
   height: 2px;
-  margin: 2px 0;
+  margin: 2px 0 2px auto;
   background: #000000;
+  transition-duration: 600ms;
+  transform-origin: right;
 `;
 
 export default Hamburger;

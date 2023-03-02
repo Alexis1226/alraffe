@@ -17,6 +17,7 @@ function Layout(props: { children: React.ReactNode }) {
 export default Layout;
 
 const Container = styled.section`
+  position: relative;
   background: ${mainColor.beige};
   min-height: 100vh;
 `;

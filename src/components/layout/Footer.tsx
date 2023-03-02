@@ -1,11 +1,11 @@
 import PillShape from "@components/buttons/PillShape";
 import styled from "@emotion/styled";
+import { getQuote, IQuote } from "@data/quote";
 import Loading from "@pages/Loading";
 import {
   mainColor,
   screenSize,
 } from "@styles/globalStyles";
-import axios from "axios";
 import { useEffect, useState } from "react";
 import {
   FaArrowCircleRight,
@@ -13,42 +13,25 @@ import {
 } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
-interface IQuote {
-  author?: string;
-  authorSlug?: string;
-  content: string;
-  dateAdded?: string;
-  dateModified?: string;
-  length?: number;
-  tags?: string[];
-  _id?: string;
-}
-
 function Footer() {
-  const [data, setData] = useState<IQuote | null>(null);
+  const [quote, setQuote] = useState<IQuote>();
 
-  async function updateQuote() {
+  async function saveQuote() {
     try {
-      const response = await axios.get(
-        "https://api.quotable.io/random"
-      );
-      console.log("response", response);
-      const { status, statusText, ...data } = response;
-      if (status !== 200)
-        throw new Error(`${status} ${statusText}`);
-      setData(data.data);
+      const data = await getQuote();
+      setQuote(data);
     } catch (error) {
-      console.error(error);
-      setData({ content: "Opps... Something went wrong" });
+      console.error("quoteError:", error);
     }
   }
 
+  // 페이지 최초 렌더링 시 실행
   useEffect(() => {
-    updateQuote();
+    saveQuote();
   }, []);
 
   // Do not render until the first quote is loaded
-  if (!data) return <Loading />;
+  if (!quote) return <Loading />;
 
   return (
     <Container>
@@ -89,7 +72,7 @@ function Footer() {
           </PillShape>
         </TopSide>
         <BottomSide className="linkArea">
-          <div>{data?.content}</div>
+          <div>{quote?.content}</div>
           <IconBox>
             <FaTwitter
               onClick={() =>
