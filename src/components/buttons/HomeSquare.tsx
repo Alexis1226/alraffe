@@ -1,12 +1,19 @@
 import styled from "@emotion/styled";
+import { Dispatch, SetStateAction } from "react";
 import { Link } from "react-router-dom";
 
-function HomeSquare(props: { hoverColor?: string }) {
-  const { hoverColor = "black" } = props;
+function HomeSquare(props: {
+  setMenuOpen?: Dispatch<SetStateAction<boolean>>;
+  hoverColor?: string;
+}) {
+  const { setMenuOpen, hoverColor = "black" } = props;
 
   return (
     <Link to={"/"}>
-      <Square hoverColor={hoverColor} />
+      <Square
+        onClick={() => setMenuOpen && setMenuOpen(false)}
+        hoverColor={hoverColor}
+      />
     </Link>
   );
 }

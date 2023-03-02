@@ -2,48 +2,110 @@ import styled from "@emotion/styled";
 import { RxCross1 } from "react-icons/rx";
 import { FaTwitter } from "react-icons/fa";
 import HomeSquare from "@components/buttons/HomeSquare";
-import { screenSize } from "@styles/globalStyles";
+import { Link } from "react-router-dom";
+import {
+  mainColor,
+  screenSize,
+} from "@styles/globalStyles";
+import {
+  Dispatch,
+  SetStateAction,
+  useEffect,
+  useState,
+} from "react";
+import { getQuote, IQuote } from "@data/quote";
 
-export default function Menu() {
+interface menuProps {
+  setMenuOpen: Dispatch<SetStateAction<boolean>>;
+}
+
+export default function Menu(props: menuProps) {
+  const [quote, setQuote] = useState<IQuote>();
+
+  async function saveQuote() {
+    try {
+      const data = await getQuote();
+      setQuote(data);
+    } catch (error) {
+      console.error("quoteError:", error);
+    }
+  }
+
+  // 페이지 최초 렌더링 시 실행
+  useEffect(() => {
+    saveQuote();
+  }, []);
+
   return (
     <Container>
       <UpperDiv>
-        <HomeSquare />
-        <RxCross1 size={40} className="iconHoverEffect" />
+        <HomeSquare setMenuOpen={props.setMenuOpen} />
+        <RxCross1
+          onClick={() => props.setMenuOpen(false)}
+          size={40}
+          className="iconHoverEffect"
+        />
       </UpperDiv>
       <MidDiv>
-        <MenuButton>
-          <div className="hoverSquare" />
-          <h1>About Us</h1>
-        </MenuButton>
-        <MenuButton>
-          <div className="hoverSquare" />
-          <h1>Blog</h1>
-        </MenuButton>
-        <MenuButton>
-          <div className="hoverSquare" />
-          <h1>Contact</h1>
-        </MenuButton>
+        <Link
+          style={{
+            textDecoration: "none",
+          }}
+          to={"/about"}
+        >
+          <MenuButton>
+            <div className="hoverSquare" />
+            <h1>About me</h1>
+          </MenuButton>
+        </Link>
+        <Link
+          style={{ textDecoration: "none" }}
+          to={"/projects"}
+        >
+          <MenuButton>
+            <div className="hoverSquare" />
+            <h1>Projects</h1>
+          </MenuButton>
+        </Link>
+        <Link
+          style={{ textDecoration: "none" }}
+          to={"/blog"}
+        >
+          <MenuButton>
+            <div className="hoverSquare" />
+            <h1>Blog</h1>
+          </MenuButton>
+        </Link>
+        <Link
+          style={{ textDecoration: "none" }}
+          to={"/contact"}
+        >
+          <MenuButton>
+            <div className="hoverSquare" />
+            <h1>Contact</h1>
+          </MenuButton>
+        </Link>
       </MidDiv>
       <BelowDiv>
         <div>
-          <h4>
-            Your life is amazing and so should your home. Take advantage of our
-            services today. A modern interior tailored to your needs.
-          </h4>
+          <h4>{quote?.content}</h4>
         </div>
         <div className="icons">
-          <FaTwitter size={24} className="iconHoverEffect" />
+          <FaTwitter
+            size={24}
+            className="iconHoverEffect"
+          />
         </div>
       </BelowDiv>
     </Container>
   );
 }
 
-const Container = styled.div`
+const Container = styled.section`
+  position: absolute;
   height: 100vh;
   padding: 20px;
-  background-color: #d04019;
+  background: ${mainColor.orange};
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -62,8 +124,9 @@ const MidDiv = styled.div`
   justify-content: flex-end;
 `;
 
-const MenuButton = styled.div`
+const MenuButton = styled.button`
   display: flex;
+  width: 100%;
   gap: 40px;
   justify-content: flex-end;
   align-items: center;
