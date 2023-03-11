@@ -8,7 +8,7 @@ function Layout(props: { children: React.ReactNode }) {
   return (
     <Container>
       <Header />
-      {props.children}
+      <Main>{props.children}</Main>
       <Footer />
     </Container>
   );
@@ -20,4 +20,8 @@ const Container = styled.section`
   position: relative;
   background: ${mainColor.beige};
   min-height: 100vh;
+`;
+
+const Main = styled.section`
+  margin: 0 20px;
 `;
