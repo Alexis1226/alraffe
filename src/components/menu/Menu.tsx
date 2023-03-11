@@ -13,7 +13,7 @@ import {
   useEffect,
   useState,
 } from "react";
-import { getQuote, IQuote } from "@data/quote";
+import { getQuote, IQuote } from "@features/quote";
 
 interface menuProps {
   setMenuOpen: Dispatch<SetStateAction<boolean>>;

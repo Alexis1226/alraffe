@@ -1,6 +1,8 @@
 import PillShape from "@components/buttons/PillShape";
+import { Circle } from "@components/shape/Circle";
 import styled from "@emotion/styled";
-import { getQuote, IQuote } from "@data/quote";
+import { getQuote, IQuote } from "@features/quote";
+
 import Loading from "@pages/Loading";
 import {
   mainColor,
@@ -37,7 +39,7 @@ function Footer() {
     <Container>
       <InnerBox>
         <TopSide className="sitemap">
-          <Circle />
+          <Circle size="35px" />
         </TopSide>
         <BottomSide className="sitemap">
           <div>
@@ -162,13 +164,6 @@ const BottomSide = styled.div`
   @media (min-width: ${screenSize.small}) {
     max-width: 640px;
   }
-`;
-
-const Circle = styled.div`
-  width: 35px;
-  height: 35px;
-  background: #000;
-  border-radius: 999px;
 `;
 
 const IconBox = styled.div`

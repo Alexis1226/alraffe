@@ -24,6 +24,7 @@ const style = css`
 
   body {
     font-family: "Roboto", "Lato", sans-serif;
+    background: ${mainColor.beige};
   }
 
   h1 {
@@ -66,6 +67,17 @@ const style = css`
   h5 {
     font-size: 20px;
     font-weight: 700;
+  }
+
+  p {
+    font-size: 20px;
+
+    @media (min-width: ${screenSize.small}) {
+      font-size: 22px;
+    }
+    @media (min-width: ${screenSize.primary}) {
+      font-size: 24px;
+    }
   }
 
   section,
