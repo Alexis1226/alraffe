@@ -4,12 +4,36 @@ import { mainColor, screenSize } from "@styles/globalStyles";
 function DetailProfile() {
   const ContextList = [
     {
-      subject: "ejflskdjf",
-      desc: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aspernatur nobis adipisci quos laudantium, consectetur enim molestiae ab impedit, repellat nemo reprehenderit? Velit ullam, accusantium inventore quod similique perspiciatis autem assumenda.",
+      subject: "JS & TS .",
+      desc: ["JavaScript와 TypsScript사용하는 개발에 익숙합니다."],
     },
     {
-      subject: "dskjflsdkjf",
-      desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure, ullam magni deleniti perspiciatis tenetur a recusandae, illum beatae ad sapiente repudiandae mollitia exercitationem sequi debitis numquam quod ut? Fuga, beatae.",
+      subject: "React & NextJs .",
+      desc: [
+        "함수형 프로그래밍에 익숙합니다.",
+        "ReactHooks를 이용해 공통 로직을 모듈화할 수 있습니다.",
+        "Redux-toolkit을 사용해 상태관리를 한 경험이 있습니다.",
+        "Yarn을 선호합니다.",
+      ],
+    },
+    {
+      subject: "Styling .",
+      desc: [
+        "CSS-in-JS 툴에 익숙합니다.",
+        "Emotion에 익숙합니다.",
+        "TailWind를 사용한 경험이 있습니다.",
+        "Material UI를 사용한 경험이 있습니다.",
+        "Animation효과에 흥미를 느낍니다.",
+      ],
+    },
+    {
+      subject: "ETC .",
+      desc: [
+        "Git을 사용해 형상관리를 합니다.",
+        "GitFlow원칙에 따라 Github & Gitlab을 사용한 경험이 있습니다.",
+        "Slack, Discord를 사용합니다.",
+        "Jira, Confluence, Notion을 이용해 스케줄을 관리하고 문서화한 경험이 있습니다.",
+      ],
     },
   ];
   return (
@@ -17,11 +41,16 @@ function DetailProfile() {
       <Contents>
         <h1>— TECH &amp;</h1>
         <h1>EXPERIENCE —</h1>
+        <h2>TECH STACK</h2>
         <TechContainer>
           {ContextList.map((item) => (
             <TechOneRow>
               <h4>{item.subject}</h4>
-              <p>{item.desc}</p>
+              <ul>
+                {item.desc.map((eachDesc) => (
+                  <li>{eachDesc}</li>
+                ))}
+              </ul>
             </TechOneRow>
           ))}
         </TechContainer>
@@ -50,21 +79,27 @@ const Contents = styled.div`
   h1:not(:first-child) {
     border-top: 5px solid ${mainColor.beige};
   }
+
+  h2 {
+    margin: 50px 0 0;
+  }
 `;
 
-const TechContainer = styled.div`
-  margin-top: 80px;
-`;
+const TechContainer = styled.div``;
 
 const TechOneRow = styled.div`
   padding: 50px 0;
 
   :not(:first-child) {
+    padding: 50px 0;
     border-top: 2px solid ${mainColor.beige};
   }
 
-  p {
+  ul {
+    list-style-type: disc;
+    list-style-position: inside;
     margin-top: 30px;
+    line-height: 1.4;
   }
 
   @media (min-width: ${screenSize.tablet}) {
@@ -80,7 +115,8 @@ const TechOneRow = styled.div`
       }
     }
 
-    p {
+    ul {
+      margin-top: 0;
       width: 50%;
     }
   }
