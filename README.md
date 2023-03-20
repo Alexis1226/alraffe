@@ -20,6 +20,8 @@ This is a Portfolio Project.
 - React
 - Emotion
 - craco
+- axios
+- emailJS
 
 # Features
 
