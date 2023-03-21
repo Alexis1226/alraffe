@@ -3,38 +3,39 @@ import { Circle } from "@components/shape/Circle";
 import Title from "@components/Title";
 import styled from "@emotion/styled";
 import { screenSize } from "@styles/globalStyles";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { FaArrowCircleRight } from "react-icons/fa";
 import emailjs from "@emailjs/browser";
+import Thank from "@components/pages/contact/Thank";
 
 function Contact() {
+  const [isShow, setIsShow] = useState(false);
   const form = useRef<any>(null);
 
   const sendEmail = (e: any) => {
-    // prevents the page from reloading when you hit “Send”
     e.preventDefault();
 
     emailjs
       .sendForm(
-        process.env.REACT_APP_SERVICE_ID,
-        process.env.REACT_APP_TEMPLATE_ID,
+        `${process.env.REACT_APP_SERVICE_ID}`,
+        `${process.env.REACT_APP_TEMPLATE_ID}`,
         form.current,
-        process.env.REACT_APP_PUBLIC_KEY
+        `${process.env.REACT_APP_PUBLIC_KEY}`
       )
       .then(
         (result) => {
-          // show the user a success message
-          console.log("result", result.text);
+          if (result.text === "OK") setIsShow(true);
         },
         (error) => {
-          // show the user an error
-          console.log("error", error.text);
+          alert("Error!");
+          console.error("error", error.text);
         }
       );
   };
 
   return (
     <>
+      {isShow && <Thank setIsShow={setIsShow} />}
       <Title title="Contact" />
       <Content>
         <div className="introduction">

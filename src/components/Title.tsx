@@ -13,8 +13,9 @@ function Title(props: { title: string }) {
 export default Title;
 
 const TitleBox = styled.div`
+  width: 100%;
   padding-bottom: 25px;
   margin-bottom: 50px;
-  border-bottom: 5px solid black;
+  border-bottom: 5px solid currentColor;
   text-align: end;
 `;
