@@ -5,29 +5,38 @@ import { Link } from "react-router-dom";
 
 function PillShape(props: {
   children: React.ReactNode;
-  link: string;
+  link?: string;
   darktone?: boolean;
   style?: React.CSSProperties;
   type?: "button" | "submit" | "reset" | undefined;
+  onClick?: () => void;
 }) {
   const { children, link, style, type, darktone = false } = props;
-  return (
-    <Link to={link} style={{ textDecoration: "none" }}>
+  if (link) {
+    return (
+      <Link to={link} style={{ textDecoration: "none" }}>
+        <PillButton type={type ? type : undefined} style={style} darktone={darktone}>
+          {children}
+        </PillButton>
+      </Link>
+    );
+  } else {
+    return (
       <PillButton type={type ? type : undefined} style={style} darktone={darktone}>
         {children}
       </PillButton>
-    </Link>
-  );
+    );
+  }
 }
 
 export default PillShape;
 
-const PillButton = styled.button<{ darktone: boolean }>`
+export const PillButton = styled.button<{ darktone: boolean }>`
   width: 240px;
   height: 60px;
   padding: 0 25px;
   background: ${(props) => (props.darktone ? "black" : "none")};
-  border: ${(props) => (props.darktone ? "none" : "2px solid #000")};
+  border: ${(props) => (props.darktone ? "none" : "2px solid currentColor")};
   color: ${(props) => (props.darktone ? mainColor.beige : "black")};
   font-size: 18px;
   font-weight: 700;

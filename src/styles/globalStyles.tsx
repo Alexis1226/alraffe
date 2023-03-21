@@ -45,6 +45,13 @@ const style = css`
   h2 {
     font-size: 32px;
     font-weight: 400;
+
+    @media (min-width: ${screenSize.small}) {
+      font-size: 38px;
+    }
+    @media (min-width: ${screenSize.primary}) {
+      font-size: 45px;
+    }
   }
 
   h3 {
