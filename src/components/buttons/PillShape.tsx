@@ -31,7 +31,7 @@ function PillShape(props: {
 
 export default PillShape;
 
-export const PillButton = styled.button<{ darktone: boolean }>`
+const PillButton = styled.button<{ darktone: boolean }>`
   width: 240px;
   height: 60px;
   padding: 0 25px;
