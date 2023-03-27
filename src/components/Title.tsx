@@ -18,4 +18,5 @@ const TitleBox = styled.div`
   margin-bottom: 50px;
   border-bottom: 5px solid currentColor;
   text-align: end;
+  letter-spacing: -0.2rem;
 `;
