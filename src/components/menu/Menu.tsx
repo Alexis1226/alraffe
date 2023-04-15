@@ -3,16 +3,8 @@ import { RxCross1 } from "react-icons/rx";
 import { FaTwitter } from "react-icons/fa";
 import HomeSquare from "@components/buttons/HomeSquare";
 import { Link } from "react-router-dom";
-import {
-  mainColor,
-  screenSize,
-} from "@styles/globalStyles";
-import {
-  Dispatch,
-  SetStateAction,
-  useEffect,
-  useState,
-} from "react";
+import { mainColor, screenSize } from "@styles/globalStyles";
+import { Dispatch, SetStateAction, useEffect, useState } from "react";
 import { getQuote, IQuote } from "@features/quote";
 
 interface menuProps {
@@ -40,14 +32,11 @@ export default function Menu(props: menuProps) {
     <Container>
       <UpperDiv>
         <HomeSquare setMenuOpen={props.setMenuOpen} />
-        <RxCross1
-          onClick={() => props.setMenuOpen(false)}
-          size={40}
-          className="iconHoverEffect"
-        />
+        <RxCross1 onClick={() => props.setMenuOpen(false)} size={40} className="iconHoverEffect" />
       </UpperDiv>
       <MidDiv>
         <Link
+          onClick={() => props.setMenuOpen(false)}
           style={{
             textDecoration: "none",
           }}
@@ -58,28 +47,19 @@ export default function Menu(props: menuProps) {
             <h1>About me</h1>
           </MenuButton>
         </Link>
-        <Link
-          style={{ textDecoration: "none" }}
-          to={"/projects"}
-        >
+        <Link onClick={() => props.setMenuOpen(false)} style={{ textDecoration: "none" }} to={"/projects"}>
           <MenuButton>
             <div className="hoverSquare" />
             <h1>Projects</h1>
           </MenuButton>
         </Link>
-        <Link
-          style={{ textDecoration: "none" }}
-          to={"/blog"}
-        >
+        <Link onClick={() => props.setMenuOpen(false)} style={{ textDecoration: "none" }} to={"/blog"}>
           <MenuButton>
             <div className="hoverSquare" />
             <h1>Blog</h1>
           </MenuButton>
         </Link>
-        <Link
-          style={{ textDecoration: "none" }}
-          to={"/contact"}
-        >
+        <Link onClick={() => props.setMenuOpen(false)} style={{ textDecoration: "none" }} to={"/contact"}>
           <MenuButton>
             <div className="hoverSquare" />
             <h1>Contact</h1>
@@ -91,10 +71,7 @@ export default function Menu(props: menuProps) {
           <h4>{quote?.content}</h4>
         </div>
         <div className="icons">
-          <FaTwitter
-            size={24}
-            className="iconHoverEffect"
-          />
+          <FaTwitter size={24} className="iconHoverEffect" />
         </div>
       </BelowDiv>
     </Container>
@@ -103,6 +80,7 @@ export default function Menu(props: menuProps) {
 
 const Container = styled.section`
   position: absolute;
+  width: 100vw;
   height: 100vh;
   padding: 20px;
   background: ${mainColor.orange};

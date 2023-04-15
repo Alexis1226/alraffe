@@ -2,17 +2,10 @@ import PillShape from "@components/buttons/PillShape";
 import { Circle } from "@components/shape/Circle";
 import styled from "@emotion/styled";
 import { getQuote, IQuote } from "@features/quote";
-
-import Loading from "@pages/Loading";
-import {
-  mainColor,
-  screenSize,
-} from "@styles/globalStyles";
+import Loading from "@components/Loading";
+import { mainColor, screenSize } from "@styles/globalStyles";
 import { useEffect, useState } from "react";
-import {
-  FaArrowCircleRight,
-  FaTwitter,
-} from "react-icons/fa";
+import { FaArrowCircleRight, FaTwitter } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 function Footer() {
@@ -76,14 +69,7 @@ function Footer() {
         <BottomSide className="linkArea">
           <div>{quote?.content}</div>
           <IconBox>
-            <FaTwitter
-              onClick={() =>
-                window.open(
-                  "https://twitter.com/alraffe",
-                  "_blank"
-                )
-              }
-            />
+            <FaTwitter onClick={() => window.open("https://twitter.com/alraffe", "_blank")} />
           </IconBox>
         </BottomSide>
       </InnerBox>
