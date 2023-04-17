@@ -2,6 +2,7 @@ import PillShape from "@components/buttons/PillShape";
 import { Circle } from "@components/shape/Circle";
 import styled from "@emotion/styled";
 import { getQuote, IQuote } from "@features/quote";
+import Loading from "@components/Loading";
 
 import { mainColor, screenSize } from "@styles/globalStyles";
 import { useEffect, useState } from "react";
