@@ -3,12 +3,12 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "@pages/Home";
 import NotFound from "@pages/NotFound";
 import About from "@pages/About";
-import Projects from "@pages/Projects";
 import Blog from "@pages/Blog";
 import Contact from "@pages/Contact";
 import Layout from "@components/layout/Layout";
 import Loading from "@components/Loading";
-import { Suspense, useEffect } from "react";
+import Projects from "@pages/Projects";
+import { Suspense } from "react";
 
 function App() {
   return (
@@ -16,17 +16,16 @@ function App() {
       <GlobalStyle />
       <BrowserRouter>
         <Layout>
-          <Routes>
-            <Suspense fallback={<Loading />}>
-              <Route path="/" element={<Home />}></Route>
-              <Route path="/about" element={<About />}></Route>
-              <Route path="/projects/*" element={<Projects />}></Route>
-              <Route path="/blog" element={<Blog />}></Route>
-              <Route path="/contact" element={<Contact />}></Route>
-              <Route path="/loading" element={<Loading />}></Route>
-              <Route path="*" element={<NotFound />}></Route>
-            </Suspense>
-          </Routes>
+          <Suspense fallback={<Loading />}>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/projects/*" element={<Projects />} />
+              <Route path="/blog" element={<Blog />} />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </Suspense>
         </Layout>
       </BrowserRouter>
     </div>
