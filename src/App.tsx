@@ -1,5 +1,5 @@
 import GlobalStyle from "./styles/globalStyles";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Home from "@pages/Home";
 import NotFound from "@pages/NotFound";
 import About from "@pages/About";
@@ -18,7 +18,7 @@ function App() {
         <Layout>
           <Suspense fallback={<Loading />}>
             <Routes>
-              <Route path="/" element={<Home />} />
+              <Route path="/" element={<Navigate to="/about" />} />
               <Route path="/about" element={<About />} />
               <Route path="/projects/*" element={<Projects />} />
               <Route path="/blog" element={<Blog />} />
