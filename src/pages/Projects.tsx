@@ -1,7 +1,11 @@
-import React from "react";
+import Title from "@components/Title";
 
 function Projects() {
-  return <div>Projects</div>;
+  return (
+    <>
+      <Title title="Projects" />
+    </>
+  );
 }
 
 export default Projects;

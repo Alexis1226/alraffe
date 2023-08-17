@@ -1,6 +1,9 @@
 ![logo Image](/public/faviconio-logo/logo.png "Optional title")
 
 # Alraffe
+@todo add app images or gif
+
+[배포 링크](https://main.d3ozkh575yk4xd.amplifyapp.com)
 
 # Description
 

@@ -21,13 +21,11 @@ function Loading() {
     nProgress.done();
   }, [prevLocation]);
 
-  //     positionUsing: "",
-
   return (
     <LoadingSection>
       <head>
-        <link rel="stylesheet" href="https://unpkg.com/nprogress@0.2.0/nprogress.css" />
-        <script src="https://unpkg.com/nprogress@0.2.0/nprogress.js"></script>
+        {/* <link rel="stylesheet" href="https://unpkg.com/nprogress@0.2.0/nprogress.css" />
+        <script src="https://unpkg.com/nprogress@0.2.0/nprogress.js"></script> */}
       </head>
       <h1>LOADING</h1>
     </LoadingSection>
@@ -52,6 +50,9 @@ const LoadingSection = styled.section`
     letter-spacing: -0.2rem;
     padding-right: 20px;
     margin: 32px 0;
+  }
 
+  button {
+    color: white;
   }
 `;

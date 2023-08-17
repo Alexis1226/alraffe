@@ -1,7 +1,11 @@
-import Layout from "@components/layout/Layout";
+import Title from "@components/Title";
 
 function Home() {
-  return <Layout>Home</Layout>;
+  return (
+    <>
+      <Title title="Home" />
+    </>
+  );
 }
 
 export default Home;
