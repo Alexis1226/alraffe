@@ -47,9 +47,11 @@ const Content = styled.section`
 `;
 
 const ProjectList = styled.div`
+  display: flex;
   align-content: flex-start;
   align-items: flex-start;
   flex: none;
+  flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-between;
   margin-top: 50px;
