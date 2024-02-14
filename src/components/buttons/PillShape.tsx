@@ -11,18 +11,18 @@ function PillShape(props: {
   type?: "button" | "submit" | "reset" | undefined;
   onClick?: () => void;
 }) {
-  const { children, link, style, type, darktone = false } = props;
+  const { children, link, style, type, darktone = false, onClick } = props;
   if (link) {
     return (
       <Link to={link} style={{ textDecoration: "none" }}>
-        <PillButton type={type ? type : undefined} style={style} darktone={darktone}>
+        <PillButton type={type ? type : undefined} style={style} darktone={darktone} onClick={onClick}>
           {children}
         </PillButton>
       </Link>
     );
   } else {
     return (
-      <PillButton type={type ? type : undefined} style={style} darktone={darktone}>
+      <PillButton type={type ? type : undefined} style={style} darktone={darktone} onClick={onClick}>
         {children}
       </PillButton>
     );

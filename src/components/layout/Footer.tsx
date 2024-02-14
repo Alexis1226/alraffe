@@ -62,7 +62,12 @@ function Footer() {
       </InnerBox>
       <InnerBox>
         <TopSide className="linkArea">
-          <PillShape link="/contact">
+          <PillShape
+            link="/contact"
+            onClick={() => {
+              window.scrollTo({ top: 0, behavior: "smooth" });
+            }}
+          >
             Contact Now
             <FaArrowCircleRight />
           </PillShape>
