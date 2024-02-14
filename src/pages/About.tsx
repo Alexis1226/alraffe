@@ -11,7 +11,7 @@ function About() {
       <Profile>
         <ImageBox></ImageBox>
         <TextBox>
-          <h2>다양한 직군과 원활한 커뮤니케이션이 가능한 개발자입니다.</h2>
+          <h2>사용자의 경험을 최우선으로 생각하는 프론트엔드 개발자입니다.</h2>
           <ProfileInfo>
             <div className="subTitle">
               <h5>서우리 (Alex Suh)</h5>
