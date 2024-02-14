@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 import { RxCross1 } from "react-icons/rx";
-import { FaTwitter } from "react-icons/fa";
+import { FaSquareXTwitter, FaLinkedin } from "react-icons/fa6";
 import HomeSquare from "@components/buttons/HomeSquare";
 import { Link } from "react-router-dom";
 import { mainColor, screenSize } from "@styles/globalStyles";
@@ -71,7 +71,18 @@ export default function Menu(props: menuProps) {
           <h4>{quote?.content}</h4>
         </div>
         <div className="icons">
-          <FaTwitter size={24} className="iconHoverEffect" />
+          <FaLinkedin
+            size={24}
+            className="iconHoverEffect"
+            onClick={() =>
+              window.open("https://www.linkedin.com/in/%EC%9A%B0%EB%A6%AC-%EC%84%9C-958732230/", "_blank")
+            }
+          />
+          <FaSquareXTwitter
+            size={24}
+            className="iconHoverEffect"
+            onClick={() => window.open("https://twitter.com/alraffe", "_blank")}
+          />
         </div>
       </BelowDiv>
     </Container>
@@ -79,14 +90,15 @@ export default function Menu(props: menuProps) {
 }
 
 const Container = styled.section`
-  position: absolute;
-  width: 100vw;
+  position: fixed;
+  width: 100%;
   height: 100vh;
   padding: 20px;
   background: ${mainColor.orange};
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  top: 0;
 `;
 
 const UpperDiv = styled.div`
@@ -150,6 +162,10 @@ const BelowDiv = styled.div`
     &.icons {
       margin-top: 30px;
       text-align: start;
+
+      & > svg {
+        margin-left: 8px;
+      }
 
       @media (min-width: ${screenSize.mobile}) {
         margin-top: 0;

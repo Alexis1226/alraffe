@@ -6,7 +6,8 @@ import Loading from "@components/Loading";
 
 import { mainColor, screenSize } from "@styles/globalStyles";
 import { useEffect, useState } from "react";
-import { FaArrowCircleRight, FaTwitter } from "react-icons/fa";
+import { FaArrowCircleRight } from "react-icons/fa";
+import { FaSquareXTwitter, FaLinkedin } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 
 function Footer() {
@@ -75,7 +76,12 @@ function Footer() {
         <BottomSide className="linkArea">
           <div>{quote?.content}</div>
           <IconBox>
-            <FaTwitter onClick={() => window.open("https://twitter.com/alraffe", "_blank")} />
+            <FaLinkedin
+              onClick={() =>
+                window.open("https://www.linkedin.com/in/%EC%9A%B0%EB%A6%AC-%EC%84%9C-958732230/", "_blank")
+              }
+            />
+            <FaSquareXTwitter onClick={() => window.open("https://twitter.com/alraffe", "_blank")} />
           </IconBox>
         </BottomSide>
       </InnerBox>
@@ -166,6 +172,7 @@ const IconBox = styled.div`
     color: #000;
     cursor: pointer;
     transition: all 0.3s ease-in-out;
+    margin-left: 8px;
 
     &:hover {
       color: ${mainColor.orange};
