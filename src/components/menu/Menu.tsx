@@ -4,30 +4,15 @@ import { FaSquareXTwitter, FaLinkedin } from "react-icons/fa6";
 import HomeSquare from "@components/buttons/HomeSquare";
 import { Link } from "react-router-dom";
 import { mainColor, screenSize } from "@styles/globalStyles";
-import { Dispatch, SetStateAction, useEffect, useState } from "react";
-import { getQuote, IQuote } from "@features/quote";
+import { Dispatch, SetStateAction } from "react";
+import { IQuote } from "@features/quote";
 
 interface menuProps {
   setMenuOpen: Dispatch<SetStateAction<boolean>>;
+  quote: IQuote | undefined;
 }
 
 export default function Menu(props: menuProps) {
-  const [quote, setQuote] = useState<IQuote>();
-
-  async function saveQuote() {
-    try {
-      const data = await getQuote();
-      setQuote(data);
-    } catch (error) {
-      console.error("quoteError:", error);
-    }
-  }
-
-  // 페이지 최초 렌더링 시 실행
-  useEffect(() => {
-    saveQuote();
-  }, []);
-
   return (
     <Container>
       <UpperDiv>
@@ -68,7 +53,7 @@ export default function Menu(props: menuProps) {
       </MidDiv>
       <BelowDiv>
         <div>
-          <h4>{quote?.content}</h4>
+          <h4>{props.quote?.content}</h4>
         </div>
         <div className="icons">
           <FaLinkedin
