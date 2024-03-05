@@ -48,19 +48,25 @@ function Blog() {
         <Subtitle>
           <h5>Latest Post</h5>
         </Subtitle>
-        <PostsContainer>
-          {postList.map((item: post) => (
-            <Post key={item.id}>
-              <p className="date">{item.date.substring(0, 16)}</p>
-              <span className="title">{item.title}</span>
-              <a href={item.postUrl}>
-                <div className="linkBox">
-                  Read more <FaArrowCircleRight size={18} style={{ marginLeft: "15px" }} />
-                </div>
-              </a>
-            </Post>
-          ))}
-        </PostsContainer>
+        {postList.length > 0 ? (
+          <PostsContainer>
+            {postList.map((item: post) => (
+              <Post key={item.id}>
+                <p className="date">{item.date.substring(0, 16)}</p>
+                <span className="title">{item.title}</span>
+                <a href={item.postUrl}>
+                  <div className="linkBox">
+                    Read more <FaArrowCircleRight size={18} style={{ marginLeft: "15px" }} />
+                  </div>
+                </a>
+              </Post>
+            ))}
+          </PostsContainer>
+        ) : (
+          <ImageContainer>
+            <img src="crossError.svg" alt="crossSVG" />
+          </ImageContainer>
+        )}
       </Suspense>
     </BlogSection>
   );
@@ -126,5 +132,14 @@ const Post = styled.article`
     display: flex;
     align-items: center;
     cursor: pointer;
+  }
+`;
+
+const ImageContainer = styled.div`
+  width: 80px;
+  margin: 0 auto;
+
+  @media (min-width: ${screenSize.small}) {
+    width: 120px;
   }
 `;
