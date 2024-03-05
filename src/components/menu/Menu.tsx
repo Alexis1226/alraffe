@@ -8,6 +8,7 @@ import { Dispatch, SetStateAction } from "react";
 import { IQuote } from "@features/quote";
 
 interface menuProps {
+  menuOpen: boolean;
   setMenuOpen: Dispatch<SetStateAction<boolean>>;
   quote: IQuote | undefined;
 }

@@ -3,7 +3,7 @@ import HomeSquare from "@components/buttons/HomeSquare";
 import Menu from "@components/menu/Menu";
 import styled from "@emotion/styled";
 import { IQuote, getQuote } from "@features/quote";
-import { useLayoutEffect, useState } from "react";
+import { useEffect, useLayoutEffect, useState } from "react";
 
 function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -25,10 +25,10 @@ function Header() {
 
   return (
     <>
-      {menuOpen && <Menu quote={quote} setMenuOpen={setMenuOpen} />}
+      {menuOpen && <Menu menuOpen={menuOpen} quote={quote} setMenuOpen={setMenuOpen} />}
       <Section>
         <HomeSquare hoverColor="#d04019" />
-        <Hamburger setMenuOpen={setMenuOpen} />
+        {menuOpen || <Hamburger setMenuOpen={setMenuOpen} />}
       </Section>
     </>
   );
