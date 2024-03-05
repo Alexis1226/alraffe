@@ -18,7 +18,7 @@ This is a Portfolio Project.
 
 # Trouble-shooting
 - [x] 메뉴보다 인용문구가 늦게 뜨는 버그 -> [160da80](https://github.com/Alexis1226/alraffe/commit/160da80f01eaedbbe070a62e7b594f8c3eae2a8b)
-- [ ] 메뉴가 나와도 메뉴 버튼이 없어지지 않는 버그
+- [x] 메뉴가 나와도 메뉴 버튼이 없어지지 않는 버그-> [7376a63](https://github.com/Alexis1226/alraffe/commit/7376a638646ce44134c968bb09cf7ecec8440082)
 - [ ] 오픈 API의 서비스 중단
  
  
